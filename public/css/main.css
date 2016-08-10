@@ -1,0 +1,62 @@
+.app-datos{
+	
+	font-size: 14px;
+	text-align: center;
+	
+	
+}
+.app-datos1{
+	
+	
+	text-align: left;
+	
+}
+.app-panel-login{
+	
+	
+	text-align: center;
+	
+}
+.app-datos2{
+	
+	
+    padding-right: 70px;
+    padding-left: 70px;
+	text-align: center;
+	
+}
+
+.app-alerta{
+
+	padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.app-img-centrar{
+	width: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.w3-input{
+	padding:15px;
+	display:block;
+	border:none;
+	border-bottom:1px solid #4caf50;
+	width:100%;
+}
+
+.panel-sesion{
+	padding-top: 80px;
+}
+
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important;}
+.w3-card-5,.w3-hover-shadow:hover{box-shadow:0 6px 20px 0 rgba(64, 245, 5, 0.45),0 6px 20px 0 rgba(0,0,0,0.19)!important;}
+
+.app-cupo{
+	padding-top: 10px;
+}
+
