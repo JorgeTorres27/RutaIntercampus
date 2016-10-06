@@ -25,7 +25,7 @@
                             
                         </ol>
 
-                        <div class="panel panel-green w3-card-5">
+                        <div class="panel panel-green w3-card-4">
                         <div class="panel-heading">
                         <h3 class="panel-title"><strong>Formulario</strong></h3>
                         </div>

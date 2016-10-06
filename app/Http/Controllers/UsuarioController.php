@@ -54,8 +54,8 @@ class UsuarioController extends Controller
         //
         $usuario = new User([
 
-            'nombres' => $request['nombres'],
-            'apellidos' => $request['apellidos'],
+            'nombres' => strtoupper($request['nombres']),
+            'apellidos' => strtoupper($request['apellidos']),
             'rol' => $request['rol'],
             'cedula' => $request['cedula'],
             'email' => $request['email'],

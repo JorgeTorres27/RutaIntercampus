@@ -13,7 +13,7 @@ class bus extends Model
       //Campos de mi identidad buses
     
      protected $fillable = [
-        'placa', 'capacidad', 'empresa',
+        'placa', 'capacidad', 'empresa','ruta_id',
         
     ];
      
@@ -21,8 +21,12 @@ class bus extends Model
      //Muchos buses pueden tener muchas rutas asignadas
     public function rutas(){
         
-        return $this->belongsToMany(ruta::class);
+        return $this->belongsTo(ruta::class);
         
+    }
+
+    public static function buses($id){
+        return bus::where('ruta_id','=',$id)->get();
     }
 
 }

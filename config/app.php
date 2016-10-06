@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'America/Mexico_City',
+    'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------
@@ -146,6 +146,18 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        *--------Generar PDF------*
+        */
+
+        Barryvdh\DomPDF\ServiceProvider::class,
+
+        /*
+        *--------Generar Excel------*
+        */
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
@@ -195,6 +207,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'PDF'       => Barryvdh\DomPDF\Facade::class,
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
 
 
     ],

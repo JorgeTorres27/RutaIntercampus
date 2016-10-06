@@ -15,7 +15,7 @@ class recorrido extends Model
     //Campos de mi identidad recorrido
     
      protected $fillable = [
-        'nombre', 'hora_salida', 'lugar_salida',
+        'ruta_id','nombre', 'hora_salida', 'lugar_salida',
          'hora_llegada','lugar_llegada','descripcion', 'fecha',
         
     ];
@@ -23,8 +23,13 @@ class recorrido extends Model
      //Un recorrido puede tener muchas rutas asignadas.
      public function rutas(){
         
-        return $this->belongsToMany(ruta::class);
+        return $this->belongsTo(ruta::class);
         
+    }
+
+    public static function recorridos($id){
+        return recorrido::where('ruta_id','=',$id)
+        ->get();
     }
 
     

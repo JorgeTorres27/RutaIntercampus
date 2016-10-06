@@ -17,7 +17,7 @@ class comprador extends Model
     //Campos de mi identidad usuarios
     
     protected $fillable = [
-        'codigo', 'nombre', 'apellidos', 'tipo_doc', 'cedula',
+        'codigo', 'nombrecompleto',
         
     ];
     

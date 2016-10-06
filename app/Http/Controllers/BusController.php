@@ -19,6 +19,9 @@ class BusController extends Controller
     public function index()
     {
         //
+
+        $buses = bus::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Bus.listar')->with('buses', $buses);
     }
 
     /**
@@ -37,15 +40,25 @@ class BusController extends Controller
     public function store(Request $request)
     {
         //
-        $bus = new bus($request->all());
+        $bus = new bus([
+
+            'placa'      => strtoupper($request['placa']),
+            'capacidad'  => $request['capacidad'],
+            'empresa'    => strtoupper($request['empresa']),
+            'ruta_id'    => $request['ruta_id'],
+            
+            ]);
         
         $bus->save();
-        $bus->rutas()->attach($request['id']);
-        dd($bus);
+        
+        //dd($bus);
         
         
         
-        dd('Bus creado');
+       // dd('Bus creado');
+
+        return redirect()->route('admin.bus.index')
+        ->with('mensaje', "Se ha agregado el bus con placa ( " . $bus->placa ." ) exitosamente.");
     }
 
     /**

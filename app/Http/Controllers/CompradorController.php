@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\comprador;
 use App\User;
 use Input;
+use App\LdapServerConnection;
 
 class CompradorController extends Controller
 {
@@ -19,9 +20,31 @@ class CompradorController extends Controller
     public function index()
     {
         //
+        $compradores = comprador::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Comprador.listar')->with('compradores', $compradores);
     }
 
     public function autocompletarcomprador(Request $request){
+
+
+        $ldap = new LdapServerConnection;
+
+        
+        $term=$request->term;
+        
+        $data = $ldap->verificarUsuarioById($term);
+
+        //dd($data);
+
+        if ($data) {
+            # code...
+            $resultado=array();
+        
+            $resultado[]=['id'=>$data->codigo, 'nombrecompleto'=>$data->nombrecompleto, 'value'=>$data->codigo];
+       
+        return response()->json($resultado);
+
+        }else{
 
         $term=$request->term;
         $data = comprador::where('codigo','LIKE','%' .$term. '%')
@@ -30,23 +53,18 @@ class CompradorController extends Controller
         $resultado=array();
         foreach ($data as $key => $v) {
             # code...
-            $resultado[]=['id'=>$v->id, 'nombre'=>$v->nombre, 'apellidos'=>$v->apellidos, 'value'=>$v->codigo];
+            $resultado[]=['id'=>$v->id, 'nombrecompleto'=>$v->nombrecompleto, 'value'=>$v->codigo];
         }
         return response()->json($resultado);
-    }
 
-    public function autocompletarvendedor(Request $request){
 
-        $term=$request->term;
-        $data = User::where('cedula','LIKE','%' .$term. '%')
-        ->take(1)
-        ->get();
-        $resultado=array();
-        foreach ($data as $key => $v) {
-            # code...
-            $resultado[]=['id'=>$v->id, 'nombres'=>$v->nombres, 'apellidos'=>$v->apellidos, 'value'=>$v->cedula];
         }
-        return response()->json($resultado);
+
+       
+
+      
+
+
     }
 
     /**
@@ -66,10 +84,18 @@ class CompradorController extends Controller
     {
         //
          //dd($request->all());
-        $comprador = new comprador($request->all());
+        $comprador = new comprador([
+
+            'codigo' => $request['codigo'],
+            'nombrecompleto' => strtoupper($request['nombrecompleto'])
+
+            ]);
         //dd($usuario);
         $comprador->save();
-        dd('Comprador creado');
+       // dd('Comprador creado');
+
+        return redirect()->route('admin.comprador.index')
+        ->with('mensaje', "Se ha agregado el comprador ( " . $comprador->nombrecompleto. " con codigo ". $comprador->codigo." ) exitosamente.");
     }
 
     /**

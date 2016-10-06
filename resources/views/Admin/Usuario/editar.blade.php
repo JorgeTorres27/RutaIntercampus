@@ -68,7 +68,7 @@
 
 
                         <div class="form-group col-lg-10">
-	                       {!! Form::submit('Actualizar', ['class' => 'btn btn-warning w3-card-4']) !!}
+	                       {!! Form::submit('Actualizar', ['class' => 'btn btn-raised btn-warning w3-card-4']) !!}
                            {!! Form::close() !!}
                         </div>
                         <div class="form-group col-lg-2">

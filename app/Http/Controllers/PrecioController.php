@@ -18,6 +18,9 @@ class PrecioController extends Controller
     public function index()
     {
         //
+
+        $precios = precio::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Precio.listar')->with('precios', $precios);
     }
 
     /**
@@ -39,7 +42,10 @@ class PrecioController extends Controller
         $precio = new precio($request->all());
         //dd($usuario);
         $precio->save();
-        dd('Precio creado');
+        //dd('Precio creado');
+
+        return redirect()->route('admin.precio.index')
+        ->with('mensaje', "Se ha agregado el precio exitosamente.");
     }
 
     /**

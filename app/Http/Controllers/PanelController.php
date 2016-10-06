@@ -16,6 +16,8 @@ use App\recorrido;
 use App\precio;
 use App\puntoventa;
 use App\Admin;
+use App\tiquete;
+use DB;
 
 class PanelController extends Controller
 {
@@ -103,13 +105,11 @@ class PanelController extends Controller
          $vendedores = User::lists('nombres','id');
          $buses = bus::lists('placa','id');
          $rutas = ruta::lists('nombre','id');
-         $recorridos = recorrido::lists('nombre','id');
+         $recorridos = recorrido::lists('hora_salida','id');
          $precios = precio::lists('valor','id');
          $puntosventas = puntoventa::lists('campus','id');
-         $bus1 = bus::find(1);
-         $bus2 = bus::find(2);
-         $bus3 = bus::find(3);
-         return view('Admin.Tiquete.crear', compact('compradores','vendedores','buses','precios','puntosventas','rutas','recorridos','bus1','bus2','bus3'));
+         
+         return view('Admin.Tiquete.crear', compact('compradores','vendedores','buses','precios','puntosventas','rutas','recorridos'));
 
       
     }

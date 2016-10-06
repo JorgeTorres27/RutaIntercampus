@@ -17,10 +17,7 @@ class CreateCompradorTable extends Migration
         {
             $table->increments('id');
             $table->string('codigo')->unique();
-            $table->string('nombre'); 
-            $table->string('apellidos');
-            $table->string('tipo_doc');
-            $table->integer('cedula')->unique();
+            $table->string('nombrecompleto'); 
             $table->timestamps(); 
             
         });

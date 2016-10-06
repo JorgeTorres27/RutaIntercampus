@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div id="page-wrapper" class="w3-card-5">
+<div id="page-wrapper">
 
             <div class="container-fluid"> 
 
@@ -35,12 +35,12 @@
 
 						<div class="form-group col-lg-4 has-success">
 						{!! Form::label('campus','Campus') !!}
-						{!! Form::text('campus',null, ['class' => 'form-control','placeholder' => 'Manga o Ternera', 'required']) !!}
+						{!! Form::text('campus',null, ['class' => 'form-control w3-card-4','placeholder' => 'Manga o Ternera', 'required']) !!}
 
 						</div>
 
 						<div class="form-group col-lg-10 has-success">
-						{!! Form::submit('Agregar', ['class' => 'btn btn-success']) !!}
+						{!! Form::submit('Agregar', ['class' => 'btn btn-success w3-card-4']) !!}
 
 						</div>
 

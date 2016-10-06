@@ -19,6 +19,8 @@ class RecorridoController extends Controller
     public function index()
     {
         //
+        $recorridos = recorrido::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Recorrido.listar')->with('recorridos', $recorridos);
     }
 
     /**
@@ -40,8 +42,11 @@ class RecorridoController extends Controller
         $recorrido = new recorrido($request->all());
         //dd($usuario);
         $recorrido->save();
-        $recorrido->rutas()->attach($request['id']);
-        dd('Recorrido creado');
+        
+        //dd('Recorrido creado');
+
+        return redirect()->route('admin.recorrido.index')
+        ->with('mensaje', "Se ha agregado el recorrido de las ( " . $recorrido->hora_salida ." ) exitosamente.");
     }
 
     /**

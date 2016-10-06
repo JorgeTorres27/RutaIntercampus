@@ -58,5 +58,83 @@
 
 .app-cupo{
 	padding-top: 10px;
+	width:60%;
 }
+.app-totalapagar{
+	padding-top: 10px;
+	width:40%;
+}
+
+.datos-tiquete{
+
+	font-size: 25px;
+	text-align: left;
+
+}
+.tiquete{
+	width: 260px;
+}
+
+.text-tiquete{
+	text-align: left;
+}
+.ancho-tabla {   
+
+	width:70%;
+        }
+
+.textotabla{
+	font-size: 12px;
+}
+
+.textotablaanulados{
+	font-size: 12px;
+}
+
+.tablapdf{ 
+
+font-family: 'Roboto Condensed', sans-serif;
+font-size: 16px; 
+color: #3fb618;
+text-align: center; 
+} 
+
+.estilo-tabla{
+
+font-family: 'Roboto Condensed', sans-serif; 
+font-size: 10px; 
+color: #003366;
+width:101%; 
+
+
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  line-height: 40px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+
+.btn-circle-xs {
+  width: 24px;
+  height: 24px;
+  line-height: 22px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+}
+
+.ui-autocomplete{
+	width: 315px !important;
+}
+
+.h1{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 28px;
+}
+
+	
+
+
 

@@ -23,7 +23,7 @@ class ruta extends Model
      
     public function recorridos(){
         
-        return $this->belongsToMany(recorrido::class);
+        return $this->hasMany(recorrido::class);
         
     }
     
@@ -31,7 +31,7 @@ class ruta extends Model
     //Muchas rutas pueden tener muchos buses asignados
     public function buses(){
         
-        return $this->belongsToMany(bus::class);
+        return $this->hasOne(bus::class);
     }
     
 
@@ -39,6 +39,13 @@ class ruta extends Model
         
         return $this->hasOne(precio::class);
     }
+
+    public function tiquetes(){
+        
+        return $this->hasOne(tiquete::class);
+    }
+
+
 
     
     
