@@ -19,6 +19,8 @@ class CreateBusTable extends Migration
             $table->string('placa')->unique(); 
             $table->integer('capacidad');
             $table->string('empresa');
+            $table->integer('ruta_id')->unsigned();
+            $table->foreign('ruta_id')->references('id')->on('ruta');
             $table->timestamps(); 
             
         });

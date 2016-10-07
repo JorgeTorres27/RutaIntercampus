@@ -43,19 +43,19 @@
                             <fieldset>
                                 
                                 <div class="form-group has-success">
-                                 {!! Form::label('correo','Correo') !!}
-                                 {!!Form::email('email',null,['class'=>'form-control w3-card-4',
+                                {!! Form::label('correo','Correo') !!}
+                                {!! Form::email('email',null,['class'=>'form-control w3-card-4',
                                  'placeholder'=>'usuario@unitecnologica.edu.co'])!!}
                                 </div>
                                 
                                 <div class="form-group has-success">
                                 {!! Form::label('password','Contraseña') !!}
-                            {!!Form::password('password', ['class' => 'form-control w3-card-4','placeholder' => '***********'])!!}
+                                {!! Form::password('password', ['class' => 'form-control w3-card-4','placeholder' => '***********'])!!}
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <div class="form-group col-md-offset">
-                                    {!! Form::submit('Iniciar sesión', ['class' => 'btn btn-success w3-card-4 col-xs-12 col-md-12']) !!}
+                                {!! Form::submit('Iniciar sesión', ['class' => 'btn btn-success w3-card-4 col-xs-12 col-md-12']) !!}
                                 
                                </div>
                             </fieldset>

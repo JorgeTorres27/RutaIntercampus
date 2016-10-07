@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div id="page-wrapper" class="w3-card-5">
+<div id="page-wrapper">
 
             <div class="container-fluid">
 
@@ -20,7 +20,7 @@
                             
                         </ol>
 
-                        <div class="panel panel-green">
+                        <div class="panel panel-green w3-card-4">
                         <div class="panel-heading">
                         <h3 class="panel-title"><strong>Formulario</strong></h3>
                         </div>
@@ -35,7 +35,7 @@
 
 					   <div class="form-group col-lg-2 has-success">
 					   {!! Form::label('valor','Valor') !!}
-					   {!! Form::text('valor',null, ['class' => 'form-control','placeholder' => '3800', 'required']) !!}
+					   {!! Form::text('valor',null, ['class' => 'form-control w3-card-4','placeholder' => '3800', 'required']) !!}
 
 					   </div>
 
@@ -43,11 +43,11 @@
 					   <div class="form-group col-lg-2 has-success">
 
 					   {!! Form::label('ruta_id','Ruta') !!}
-					   {!! Form::select('ruta_id', $rutas, null, ['class' => 'form-control', 'required','placeholder' => 'Seleccionar'])!!}
+					   {!! Form::select('ruta_id', $rutas, null, ['class' => 'form-control w3-card-4', 'required','placeholder' => 'Seleccionar'])!!}
 					   </div>
 
 					   <div class="form-group col-lg-10 has-success">
-					   {!! Form::submit('Agregar', ['class' => 'btn btn-success']) !!}
+					   {!! Form::submit('Agregar', ['class' => 'btn btn-success w3-card-4']) !!}
 
     				    </div>
 

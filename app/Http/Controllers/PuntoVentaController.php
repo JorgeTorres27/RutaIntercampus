@@ -17,6 +17,9 @@ class PuntoVentaController extends Controller
     public function index()
     {
         //
+
+        $puntosventas = puntoventa::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Puntoventa.listar')->with('puntosventas', $puntosventas);
     }
 
     /**
@@ -35,10 +38,17 @@ class PuntoVentaController extends Controller
     public function store(Request $request)
     {
         //
-         $puntoventa = new puntoventa($request->all());
+         $puntoventa = new puntoventa([
+
+            'campus' => strtoupper($request['campus'])
+
+            ]);
         //dd($usuario);
         $puntoventa->save();
-        dd('Punto de venta creado');
+        //dd('Punto de venta creado');
+
+        return redirect()->route('admin.puntoventa.index')
+        ->with('mensaje', "Se ha agregado el punto de venta ( " . $puntoventa->campus." ) exitosamente.");
     }
 
     /**

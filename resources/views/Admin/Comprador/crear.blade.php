@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div id="page-wrapper" class="w3-card-5">
+<div id="page-wrapper">
 
             <div class="container-fluid"> 
 
@@ -18,7 +18,7 @@
                         </li>
                         </ol>
 
-                        <div class="panel panel-green">
+                        <div class="panel panel-green w3-card-4">
                         <div class="panel-heading">
                         <h3 class="panel-title"><strong>Formulario</strong></h3>
                         </div>
@@ -30,39 +30,20 @@
 						{!! Form::open(['route' => 'admin.comprador.store', 'method' => 'POST']) !!}
 
 						<div class="form-group  col-lg-4 has-success">
-						{!! Form::label('codigo','Codigo') !!}
-						{!! Form::text('codigo',null, ['class' => 'form-control','placeholder' => 'T00027144', 'required']) !!}
+						{!! Form::label('codigo','Codigo o cedula') !!}
+						{!! Form::text('codigo',null, ['class' => 'form-control w3-card-4','placeholder' => 'T00027144 o C.C', 'required']) !!}
 
 						</div>
 
 						<div class="form-group  col-lg-4 has-success">
-						{!! Form::label('nombre','Nombre') !!}
-						{!! Form::text('nombre',null, ['class' => 'form-control','placeholder' => 'Nombres', 'required']) !!}
+						{!! Form::label('nombrecompleto','Nombre completo') !!}
+						{!! Form::text('nombrecompleto',null, ['class' => 'form-control w3-card-4','placeholder' => 'Nombres y Apellidos', 'required']) !!}
 
 						</div>
-
-						<div class="form-group col-lg-4 has-success">
-						{!! Form::label('apellidos','Apellidos') !!}
-						{!! Form::text('apellidos',null, ['class' => 'form-control','placeholder' => 'Apellidos', 'required']) !!}
-
-						</div>
-
-						<div class="form-group col-lg-4 has-success">
-						{!! Form::label('tipo_doc','Tipo de documento') !!}
-						{!! Form::select('tipo_doc', ['CC' => 'Cedula', 'TI' => 'Tarjeta de identidad'],null, ['class' => 'form-control','placeholder' => 'Seleccione un tipo de Documento']) !!}
-
-						</div>
-
-						<div class="form-group col-lg-4 has-success">
-						{!! Form::label('cedula','Cedula') !!}
-						{!! Form::text('cedula',null, ['class' => 'form-control','placeholder' => 'Documento de identidad', 'required']) !!}
-
-						</div>
-
 
 						<div class="form-group col-lg-8 has-success">
 						
-						{!! Form::submit('Agregar', ['class' => 'btn btn-success']) !!}
+						{!! Form::submit('Agregar', ['class' => 'btn btn-success w3-card-4']) !!}
 	
 						</div>
 

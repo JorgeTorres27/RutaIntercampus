@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\ruta;
 use App\bus;
+use App\precio;
+use App\recorrido;
 use DB;
 
 
@@ -20,6 +22,8 @@ class RutaController extends Controller
     public function index()
     {
         //
+        $rutas = ruta::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Ruta.listar')->with('rutas', $rutas);
         
     }
 
@@ -29,13 +33,7 @@ class RutaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function getBuses(Request $request, $id){
-        if($request->ajax()){
-            $buses = bus::buses($id);
-            return Response()->json($buses);
-        }
-
-    }
+   
 
     
 
@@ -52,7 +50,9 @@ class RutaController extends Controller
         //dd($usuario);
         $ruta->save();
         //$ruta->buses()->attach($ruta);
-        dd('Ruta creado');
+        //dd('Ruta creado');
+        return redirect()->route('admin.ruta.index')
+        ->with('mensaje', "Se ha agregado la ruta ( " . $ruta->nombre ." ) exitosamente.");
     }
 
     /**
@@ -99,4 +99,28 @@ class RutaController extends Controller
     {
         //
     }
+
+    public function getPrecios(Request $request, $id){
+        if($request->ajax()){
+            $precios = precio::precios($id);
+            return response()->json($precios);
+        }
+    }
+
+    public function getRecorridos(Request $request, $id){
+        if($request->ajax()){
+            $recorridos = recorrido::recorridos($id);
+            return response()->json($recorridos);
+        }
+    }
+
+    public function getBuses(Request $request, $id){
+        if($request->ajax()){
+            $buses = bus::buses($id);
+            return response()->json($buses);
+        }
+    }
+
+
+
 }

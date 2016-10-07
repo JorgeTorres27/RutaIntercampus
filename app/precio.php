@@ -27,6 +27,11 @@ class precio extends Model
         return $this->belongsTo(ruta::class);
         
     }
-    
+
+
+    public static function precios($id){
+        return precio::where('ruta_id','=',$id)
+        ->get();
+    }
    
 }

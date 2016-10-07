@@ -11,6 +11,8 @@
 
    <title>@yield('title')</title>
 
+   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
     <!-- Bootstrap Core CSS -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
     {!! Html::style('css/bootstrap.min.css') !!}
@@ -61,7 +63,8 @@
             
             <ul class="nav navbar-right top-nav">                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Binvenido (a) {!!Auth::user()->nombres!!} {!!Auth::user()->apellidos!!} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <!--<IMG SRC="../img/user.png">-->  Binvenido (a) {!!Auth::user()->nombres!!} {!!Auth::user()->apellidos!!} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -104,7 +107,7 @@
                             <a href="{{ route('admin.roles') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.rol.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -116,7 +119,7 @@
                             <a href="{{ route('admin.rutas') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.ruta.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -128,7 +131,7 @@
                                 <a href="{{ route('admin.buses') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.bus.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -140,7 +143,7 @@
                             <a href="{{ route('admin.recorridos') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.recorrido.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -152,7 +155,7 @@
                             <a href="{{ route('admin.precios') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.precio.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                            
                         </ul>
@@ -164,7 +167,7 @@
                             <a href="{{ route('admin.puntosventas') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.puntoventa.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -177,7 +180,7 @@
                                 <a href="{{ route('admin.compradores') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Agregar</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
+                                <a href="{{ route('admin.comprador.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Listar</a>
                             </li>
                             
                         </ul>
@@ -187,11 +190,65 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#tiquetes"><i class="fa fa-ticket"></i>&nbsp;&nbsp;Tiquetes</a>
                         <ul id="tiquetes" class="collapse">
                             <li>
-                                <a href="{{ route('admin.tiquetes') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Vender Tiquete</a>
+                                <a href="{{ route('admin.tiquetes') }}"><i class="glyphicon glyphicon-plus text-success"></i>&nbsp;&nbsp;Vender Tiquetes</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Ver Tiquetes</a>
+                                <a href="{{ route('admin.tiquete.index') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Ver Tiquetes</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.tiquete.consultartiquetes') }}"><i class="fa fa-search text-warning"></i>&nbsp;&nbsp;Consultar Tiquetes</a>
+                            </li>
+                                                        
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#carritodecompras"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Carrito de compras</a>
+                        <ul id="carritodecompras" class="collapse">
+                           
+                            <li>
+                                <a href="{{ route('admin.tiquete.carritodecompras') }}"><i class="fa fa-money text-success"></i>&nbsp;&nbsp;Pagos e impresión&nbsp; <i class="glyphicon glyphicon-print text-warning"></i></a>
+                            </li>
+                                                        
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#imprimirduplicados"><i class="glyphicon glyphicon-print"></i>&nbsp;&nbsp;Duplicados de Tiquetes</a>
+                        <ul id="imprimirduplicados" class="collapse">
+                            
+                            <li>
+                                <a href="{{ route('admin.tiquete.imprimirduplicados') }}"><i class="fa fa-print"></i>&nbsp;&nbsp;Imprimir Duplicados</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                      <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#anulartiquetes"><i class="fa fa-ban"></i>&nbsp;&nbsp;Anular Tiquetes</a>
+                        <ul id="anulartiquetes" class="collapse">
+                            
+                            <li>
+                                <a href="{{ route('admin.tiquete.anulartiquetes') }}"><i class="fa fa-trash text-danger"></i>&nbsp;&nbsp;Anular Tiquetes</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.tiquete.tiquetesanulados') }}"><i class="fa fa-list-alt text-primary"></i>&nbsp;&nbsp;Tiquetes Anulados</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#reportes"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Reportes</a>
+                        <ul id="reportes" class="collapse">
+                            
+                            <li>
+                                <a href="{{ route('admin.exportarventashoy') }}"><i class="fa fa-line-chart text-warning"></i>&nbsp;&nbsp;Reporte diario</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.exportarventasgeneral') }}"><i class="fa fa-pie-chart text-success"></i>&nbsp;&nbsp;Reporte general</a>
+                            </li>
+                           
                             
                         </ul>
                     </li>
@@ -204,7 +261,7 @@
 
         <!-- Aqui va el contenido -->
 
-
+        
 
          @yield('content')
          @include ('Alertas.error');
@@ -231,6 +288,7 @@
    <!-- <script src="js/bootstrap.min.js"></script>-->
     {!! Html::script('js/bootstrap.min.js') !!}
     {!! Html::script('js/calendario.js') !!}
+    {!! Html::script('js/dropdown.js') !!}
     
 
     
@@ -258,29 +316,39 @@ $('div.alert').not('.alert-important').delay(4000).fadeOut(350);
 <script type="text/javascript">
 $('#codigocomprador').autocomplete({
     source : '{!!URL::route('autocompletarcomprador')!!}',
-    minlength:1,
+    minLength:1,
     autoFocus:true,
     select:function(e,ui){
         $('#id').val(ui.item.id);
-        $('#nombre').val(ui.item.nombre);
-        $('#apellidos').val(ui.item.apellidos);
+        $('#nombrecompleto').val(ui.item.nombrecompleto);
+        
     }
 })
 
 </script>
 
-<script type="text/javascript">
-$('#codigovendedor').autocomplete({
-    source : '{!!URL::route('autocompletarvendedor')!!}',
-    minlength:1,
-    autoFocus:true,
-    select:function(e,ui){
-        $('#idvendedor').val(ui.item.id);
-        $('#nombresvendedor').val(ui.item.nombres);
-        $('#apellidosvendedor').val(ui.item.apellidos);
-    }
-})
+<script>
+function direccion(){
+location.href="{{URL::to('admin/carritodecompras')}}";
+}
+</script>
 
+<script type="text/javascript">
+function copiarAlPortapapeles(id_elemento) {
+  var aux = document.createElement("input");
+  aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+}
+
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
 </script>
 
 </html>

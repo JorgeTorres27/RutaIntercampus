@@ -72,6 +72,53 @@ Route::group(['prefix'=> 'admin'], function(){
 
         ]);
 
+    Route::get('tiquete/{id}/eliminar', [
+        'uses' => 'TiqueteController@destroy',
+        'as' => 'admin.tiquete.eliminar'
+        ]);
+
+    Route::get('tiquete/{id}/imprimir', [
+        'uses' => 'TiqueteController@imprimir',
+        'as' => 'admin.tiquete.imprimir'
+        ]);
+
+    Route::get('imprimirtiquetes', [
+        'uses' => 'TiqueteController@imprimirTiquetes',
+        'as' => 'admin.tiquete.imprimirtiquetes'
+        ]);
+
+    Route::get('imprimir_tiquetes', [
+        'uses' => 'TiqueteController@imprimir_tiquetes',
+        'as' => 'admin.tiquete.imprimir_tiquetes'
+        ]);
+
+    Route::get('imprimirduplicados', [
+        'uses' => 'TiqueteController@imprimirduplicados',
+        'as' => 'admin.tiquete.imprimirduplicados'
+        ]);
+
+    Route::get('consultartiquetes', [
+        'uses' => 'TiqueteController@consultartiquetes',
+        'as' => 'admin.tiquete.consultartiquetes'
+        ]);
+
+    Route::get('carritodecompras', [
+        'uses' => 'TiqueteController@carritodecompras',
+        'as' => 'admin.tiquete.carritodecompras'
+        ]);
+
+    Route::get('anulartiquetes', [
+        'uses' => 'TiqueteController@anular_tiquetes',
+        'as' => 'admin.tiquete.anulartiquetes'
+        ]);
+
+    Route::get('tiquetesanulados', [
+        'uses' => 'TiqueteController@tiquetesanulados',
+        'as' => 'admin.tiquete.tiquetesanulados'
+        ]);
+
+
+
     Route::get('buses/{id}','RutaController@getBuses');
 
     Route::resource('panel','PanelController');
@@ -90,10 +137,28 @@ Route::group(['prefix'=> 'admin'], function(){
     Route::get('usuario/{id}/logout','LogController@logout');
 
     Route::get('autocompletarcomprador', array('as'=>'autocompletarcomprador','uses'=>'CompradorController@autocompletarcomprador'));
-    Route::get('autocompletarvendedor', array('as'=>'autocompletarvendedor','uses'=>'CompradorController@autocompletarvendedor'));
+   
+    Route::get('/getPDF','PDFController@getPDF');
+    Route::get('reportediariopdf','PDFController@reportediario');
+    Route::get('reportegeneralpdf','PDFController@reportegeneral');
+    Route::get('/exportar','ExcelController@reportediario');
+    Route::get('/exportargeneral','ExcelController@reportegeneral');
 
-    
-    
+   Route::get('reportediario', [
+        'uses' => 'ExcelController@reporteventashoy',
+        'as' => 'admin.exportarventashoy'
+        ]);
+
+   Route::get('reportegeneral', [
+        'uses' => 'ExcelController@reporteventasgeneral',
+        'as' => 'admin.exportarventasgeneral'
+        ]);
+
+  
+    Route::get('precios/{id}','RutaController@getPrecios');
+    Route::get('recorridos/{id}','RutaController@getRecorridos');
+    Route::get('buses/{id}','RutaController@getBuses');
+
     
 });
 

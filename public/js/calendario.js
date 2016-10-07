@@ -12,7 +12,7 @@ jQuery(function($){
 		dayNamesShort: ['Dom','Lun','Mar','Mie;','Juv','Vie','Sab'],
 		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		weekHeader: 'Sm',
-		dateFormat: 'dd/mm/yy',
+		dateFormat: 'dd-mm-yy',
 		firstDay: 0,
 		minDate:0,
 		altField: "#alternate",

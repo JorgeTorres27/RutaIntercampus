@@ -20,6 +20,9 @@ class RolController extends Controller
     public function index()
     {
         //
+
+        $roles = rol::orderBy('id','ASC')->paginate(5);
+        return view('Admin.Rol.listar')->with('roles', $roles);
     }
 
     /**
@@ -40,7 +43,11 @@ class RolController extends Controller
         $rol = new rol($request->all());
         //dd($usuario);
         $rol->save();
-        dd('Rol creado');
+        //dd('Rol creado');
+       
+        //dd('Usuario creado');
+        return redirect()->route('admin.rol.index')
+        ->with('mensaje', "Se ha agregado el rol ( " . $rol->nombre ." ) exitosamente.");
     }
 
     /**

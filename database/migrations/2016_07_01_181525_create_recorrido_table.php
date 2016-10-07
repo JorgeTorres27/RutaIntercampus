@@ -16,6 +16,8 @@ class CreateRecorridoTable extends Migration
         Schema::create('recorrido', function (Blueprint $table)
         {
             $table->increments('id');
+            $table->integer('ruta_id')->unsigned();
+            $table->foreign('ruta_id')->references('id')->on('ruta');
             $table->string('nombre'); 
             $table->time('hora_salida');
             $table->string('lugar_salida');

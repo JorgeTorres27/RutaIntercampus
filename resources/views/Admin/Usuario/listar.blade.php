@@ -7,11 +7,11 @@
 
 
 
-                             @include('flash::message')
+@include('flash::message')
                             
                         
 
- <div id="page-wrapper" class="w3-card-5">
+ <div id="page-wrapper">
 
             <div class="container-fluid">
 
@@ -30,7 +30,7 @@
                             
                         </ol>
 
-                        <div class="panel panel-green w3-card-5">
+                        <div class="panel panel-green w3-card-4">
                         <div class="panel-heading">
                         <h3 class="panel-title">Lista de usuarios</h3>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>
-                                    <tr class="success">
+                                    <tr>
                                         <th>Id</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
@@ -67,9 +67,9 @@
                                     <td>{{ $usuario->apellidos}}</td>
                                     <td class="app-datos1">
                                         @if( $usuario->rol == 1)
-                                        <span class="label label-info">Administrador</span>
+                                        <span class="btn btn-info btn-xs">Administrador</span>
                                         @else
-                                        <span class="label label-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vendedor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</span>
+                                        <span class="btn btn-primary btn-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vendedor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                         @endif
 
                                     </td>
