@@ -316,11 +316,7 @@ $('div.alert').not('.alert-important').delay(4000).fadeOut(350);
 <script type="text/javascript">
 $('#codigocomprador').autocomplete({
     source : '{!!URL::route('autocompletarcomprador')!!}',
-<<<<<<< HEAD
     minLength:1,
-=======
-    minLength:6,
->>>>>>> 8cdf332e460612174ed3c6e986edbc07cf950961
     autoFocus:true,
     select:function(e,ui){
         $('#id').val(ui.item.id);
