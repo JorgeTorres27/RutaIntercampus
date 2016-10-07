@@ -58,7 +58,11 @@
                     </div>
                     
                     <div class="col-xs-8 app-totalapagar">
+<<<<<<< HEAD
                          <div class="panel panel-green w3-card-4">
+=======
+                         <div class="panel panel-yellow w3-card-4">
+>>>>>>> 8cdf332e460612174ed3c6e986edbc07cf950961
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
